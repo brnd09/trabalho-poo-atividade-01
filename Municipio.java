@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 class Municipio {
-    private List<Imovel> imoveis;
+    private final List<Imovel> imoveis;
 
     public Municipio() {
         this.imoveis = new ArrayList<>();
@@ -38,7 +38,7 @@ class Municipio {
         System.out.println("Listagem de Multas:");
         for (Imovel imovel : imoveis) {
             double multa = calcularMulta(imovel);
-            String detalhes = String.format("Proprietário: %s, Imposto: %.2f, Meses de Atraso: %d, Multa: %.2f",
+            String detalhes = String.format("Proprietário: %s | Imposto: %.2f | Meses de Atraso: %d | Multa: %.2f",
                     imovel.getNomeProprietario(),
                     imovel.getImposto(),
                     imovel.getMesesAtraso(),

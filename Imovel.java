@@ -1,11 +1,10 @@
 package org.example;
 
 class Imovel {
-    private final String nomeProprietario;
-    private final double imposto;
-    private final int mesesAtraso;
+    private String nomeProprietario;
+    private double imposto;
+    private int mesesAtraso;
 
-    // Construtor
     public Imovel(String nomeProprietario, double imposto, int mesesAtraso) {
         this.nomeProprietario = nomeProprietario;
         this.imposto = imposto;

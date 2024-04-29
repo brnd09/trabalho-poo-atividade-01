@@ -4,13 +4,19 @@ public class Main {
     public static void main(String[] args) {
         Municipio municipio = new Municipio();
 
-        // Adicionando alguns imóveis
-        municipio.adicionarImovel(new Imovel("João Silva", 1500, 0));
-        municipio.adicionarImovel(new Imovel("Maria Souza", 2000, 7));
-        municipio.adicionarImovel(new Imovel("Carlos Pereira", 1000, 10));
-        municipio.adicionarImovel(new Imovel("Ana Santos", 2500, 13));
+        // Número de imóveis a serem cadastrados
+        int numImoveis = InOut.leInt("Quantos imóveis deseja cadastrar?");
 
-        // Listar as multas para os imóveis no município
+        for (int i = 0; i < numImoveis; i++) {
+            String nomeProprietario = InOut.leString("Nome do proprietário do imóvel " + (i + 1) + ":");
+            double imposto = InOut.leDouble("Valor do imposto do imóvel " + (i + 1) + ":");
+            int mesesAtraso = InOut.leInt("Meses de atraso do imóvel " + (i + 1) + ":");
+
+            Imovel imovel = new Imovel(nomeProprietario, imposto, mesesAtraso);
+            municipio.adicionarImovel(imovel);
+        }
+
+        // Listar as multas para os imóveis cadastrados
         municipio.listarMultas();
     }
 }

@@ -1,9 +1,9 @@
 package org.example;
 
 class Imovel {
-    private String nomeProprietario;
-    private double imposto;
-    private int mesesAtraso;
+    private final String nomeProprietario;
+    private final double imposto;
+    private final int mesesAtraso;
 
     public Imovel(String nomeProprietario, double imposto, int mesesAtraso) {
         this.nomeProprietario = nomeProprietario;

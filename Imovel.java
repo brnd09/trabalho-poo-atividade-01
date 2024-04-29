@@ -1,5 +1,3 @@
-package org.example;
-
 class Imovel {
     private final String nomeProprietario;
     private final double imposto;
@@ -23,4 +21,3 @@ class Imovel {
         return mesesAtraso;
     }
 }
-

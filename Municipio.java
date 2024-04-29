@@ -4,24 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 class Municipio {
-    private final List<Imovel> imoveis; // Lista de imóveis no município
+    private List<Imovel> imoveis;
 
     public Municipio() {
         this.imoveis = new ArrayList<>();
     }
 
-    // Adiciona um imóvel ao município
     public void adicionarImovel(Imovel imovel) {
         imoveis.add(imovel);
     }
 
-    // Calcula a multa de acordo com a tabela
     public double calcularMulta(Imovel imovel) {
         int meses = imovel.getMesesAtraso();
         double imposto = imovel.getImposto();
         double percentual = 0;
 
-        // Determine a classe de multa com base no número de meses de atraso
         if (meses == 0) {
             percentual = 0.05;
         } else if (meses <= 6) {
@@ -34,16 +31,24 @@ class Municipio {
             percentual = 0.10; // Para mais de 12 meses, uma taxa fixa de 10%
         }
 
-        // Calcula o valor da multa
         return imposto * percentual;
     }
 
     public void listarMultas() {
-        System.out.println("Listagem de multas:");
+        System.out.println("Listagem de Multas:");
         for (Imovel imovel : imoveis) {
             double multa = calcularMulta(imovel);
-            System.out.printf("Proprietário: %s | Imposto: %.2f | Meses de Atraso: %d | Multa a ser paga: %.2f\n",
-                    imovel.getNomeProprietario(), imovel.getImposto(), imovel.getMesesAtraso(), multa);
+            String detalhes = String.format("Proprietário: %s, Imposto: %.2f, Meses de Atraso: %d, Multa: %.2f",
+                    imovel.getNomeProprietario(),
+                    imovel.getImposto(),
+                    imovel.getMesesAtraso(),
+                    multa);
+
+            // Exibe a informação no terminal
+            System.out.println(detalhes);
+
+            // Exibe a informação em uma janela de diálogo
+            InOut.MsgDeInformacao("Detalhes da Multa", detalhes);
         }
     }
 }
